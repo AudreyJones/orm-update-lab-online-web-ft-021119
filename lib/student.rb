@@ -51,4 +51,8 @@ class Student
     new_student.grade = row[2]
     new_student
   end
+
+  def self.find_by_name
+
+  end
 end
