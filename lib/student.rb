@@ -28,12 +28,7 @@ class Student
 
   def save
     if self.id
-      # self.update:
-      sql = <<-SQL
-        UPDATE students SET name = ?, grade = ?
-        WHERE id = ?
-      SQL
-      DB[:conn].execute(sql, self.name, self.grade)
+      self.update
     else
       sql = <<-SQL
         INSERT INTO students (name,grade) VALUES (?,?);
