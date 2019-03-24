@@ -30,11 +30,10 @@ class Student
     if self.id
       # self.update:
       sql = <<-SQL
-      #   UPDATE students SET name = ?, grade = ?
-      #   WHERE id = ?
-      # SQL
-      # binding.pry
-      # DB[:conn].execute(sql2, self.name, self.grade)
+        UPDATE students SET name = ?, grade = ?
+        WHERE id = ?
+      SQL
+      DB[:conn].execute(sql, self.name, self.grade)
     else
       sql = <<-SQL
         INSERT INTO students (name,grade) VALUES (?,?);
