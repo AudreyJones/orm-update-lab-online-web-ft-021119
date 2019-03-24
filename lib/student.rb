@@ -32,11 +32,12 @@ class Student
     SQL
     DB[:conn].execute(sql, self.name, self.grade)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
-binding.pry
+
     sql2 = <<-SQL
       UPDATE students SET name = ?, grade = ?
       WHERE id = ?
     SQL
+    binding.pry
     DB[:conn].execute(sql2, self.name, self.grade)
   end
   # Remember, you can access your database connection anywhere in this class
